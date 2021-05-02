@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>The Scala.js Tutorial</title>
+
+    <style>
+      .outer-container {
+        display: flex;
+      }
+
+      .container {
+        display: flex;
+    justify-content: space-around;
+    margin: 10px;
+    flex: 1;
+      }
+
+      body {
+        border: 10px solid saddlebrown;
+      }
+      table td {
+        width: 60px;
+    height: 60px;
+    border: 1px dotted black;
+    text-align: center;
+    cursor: pointer;
+        transition: background-color 0.4s ease;
+      }
+
+      .color-palette .color {
+        margin: 2px;
+      }
+
+      [data-color="red"] {
+        background-color: red;
+      }
+      
+      [data-color="green"] {
+        background-color: green;
+      }
+
+      [data-color="blue"] {
+        background-color: blue;
+      }
+
+      [data-color="black"] {
+        background-color: black;
+      }
+
+      [data-color="white"] {
+        background-color: white;
+      }
+
+      [data-color="yellow"] {
+        background-color: yellow;
+      }
+
+      [data-color="pink"] {
+        background-color: pink;
+      }
+
+      [data-color="purple"] {
+        background-color: purple;
+      }
+
+      [data-color="orange"] {
+        background-color: orange;
+      }
+
+      [data-color="cyan"] {
+        background-color: cyan;
+      }
+
+      [data-color="brown"] {
+        background-color: brown;
+      }
+
+      [data-color="multicolor"] {
+        background-image: linear-gradient(red, yellow, green);
+      }
+
+      .color-palette {
+        display: flex;
+        padding: 1em;
+        /* background: lightgrey; */
+        border-radius: 10px;
+        flex-wrap: wrap;
+      }
+
+      .active-color:before {
+          content: "✔";
+          margin-left: auto auto;
+          width: 100%;
+          padding: 2px;
+          font-weight: bold;
+          color: white;
+          font-size: 2em;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      
+      .color {
+        width: 70px;
+        border: 5px solid lightgrey;
+        height: 70px;
+        border-radius: 40%;
+      }
+
+      .banner {
+        font-size: 32px;
+        margin-top: 0px;
+    text-align: center;
+    font-weight: bold;
+    background: #2a7f35;
+    color: white;
+    padding: 10px;
+    font-family: sans-serif;
+      }
+
+      .progressbar {
+        height: 40px;
+        border-top: 10px solid saddlebrown;
+      }
+
+      .progressbar .progress {
+        background: linear-gradient(315deg, #67215e, transparent);
+        width: 0%;
+        height: 100%;
+        transition: width 0.2s ease 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <script>
+       setTimeout(() => {
+        const audio = new Audio("./slide.ogg");
+        audio.play();
+       }, 4000);
+
+
+    </script>
+    <!-- Include Scala.js compiled code -->
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+  
+</html>
