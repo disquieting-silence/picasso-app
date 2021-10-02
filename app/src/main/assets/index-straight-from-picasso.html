@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>The Scala.js Tutorial</title>
+    <meta charset="UTF-8">
+    <title>The Scala.js Tutorial</title>
 
-  <style>
+    <style>
       .outer-container {
         display: flex;
       }
@@ -34,7 +34,7 @@
       [data-color="red"] {
         background-color: red;
       }
-
+      
       [data-color="green"] {
         background-color: green;
       }
@@ -110,7 +110,7 @@
           align-items: center;
       }
 
-
+      
       .color {
         width: 60px;
         border: 5px solid lightgrey;
@@ -138,6 +138,7 @@
       .progressbar .progress {
         background: linear-gradient(315deg, #67215e, transparent);
         width: 0%;
+        height: 100%;
         transition: width 0.2s ease 0.5s;
       }
 
@@ -158,8 +159,17 @@
 </head>
 <body>
 
-    <!-- Include Scala.js compiled code -->
-    <script type="text/javascript" src="./main.js"></script>
-  </body>
-  
+<script>
+       setTimeout(() => {
+        const audio = new Audio("./slide.ogg");
+        audio.play();
+       }, 4000);
+
+
+
+</script>
+<!-- Include Scala.js compiled code -->
+<script type="text/javascript" src="./target/scala-2.13/scala-js-tutorial-fastopt/main.js"></script>
+</body>
+
 </html>

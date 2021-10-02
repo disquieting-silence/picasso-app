@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>The Scala.js Tutorial</title>
+
+    <style>
+      .outer-container {
+        display: flex;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-around;
+        margin: 10px;
+        flex: 1;
+      }
+
+      .banner {
+        font-size: 32px;
+        margin-top: 0px;
+        text-align: center;
+        font-weight: bold;
+        background: #2a7f35;
+        color: white;
+        padding: 10px;
+        font-family: sans-serif;
+      }
+
+      td[data-maze-square] {
+        width: 60px;
+        height: 60px;
+      }
+
+      td.current-maze-focus:before {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '⬤';
+        font-size: 2em;
+        color: white;
+      }
+
+      td.dest-maze-focus:before {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '⬤';
+        font-size: 2em;
+        color: #47cc47;
+      }
+
+      td.current-maze-focus.dest-maze-focus:before {
+        content: '✪';
+        color: #e2d527;
+        background-color: black;
+        font-size: 2em;
+        font-weight: bold;
+        width: 100%;
+        height: 100%;
+
+      }
+
+      td[data-maze-square=pathsquare] {
+        background-color: #82698a;
+      }
+
+      td[data-maze-square=solidsquare] {
+        background-color: darkslategrey;
+      }
+
+      .directions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+      }
+
+      .directions button {
+
+        margin: 10px;
+        height: 80px;
+        width: 80px;
+        font-size: 3em;
+        font-weight: bold;
+        background: #711a1a;
+        border: none;
+        border-radius: 20%;
+        color: white;
+      }
+
+      .maze-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      body.maze-victory {
+        background: lightgreen;
+      }
+
+      .commands {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .new-mazes {
+        display: flex;
+        align-items: center;
+        padding: 1em;
+      }
+
+      .new-mazes button {
+        background-color: black;
+        color: white;
+        font-size: 2em;
+        border-radius: 25%;
+        padding: 0.3em;
+        width: 80px;
+        height: 80px;
+        font-weight: bold;
+        border: none;
+        margin: 10px;
+      }
+
+    </style>
+</head>
+<body>
+
+<script>
+     
+
+</script>
+<!-- Include Scala.js compiled code -->
+<script type="text/javascript" src="./main-maze.js"></script>
+</body>
+
+</html>

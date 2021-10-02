@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
 
-        myWebView.loadUrl("file:///android_asset/index.html");
+        // Here, we switch between maze and picasso (mimic)
+        // Need to find a way to support both at once
+        myWebView.loadUrl("file:///android_asset/index-maze.html");
     }
 
     @Override

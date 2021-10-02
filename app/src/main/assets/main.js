@@ -2800,47 +2800,42 @@ $c_s_util_hashing_MurmurHash3.prototype.listHash__sci_List__I__I = (function(xs,
 function $s_Ltutorial_webapp_TutorialApp__main__AT__V(args) {
   $m_Ltutorial_webapp_TutorialApp$().main__AT__V(args)
 }
-function $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V($thiz, hackyGrid$1, hackyPalette$1, hackyProgress$1) {
-  var this$1 = $as_s_Option(hackyGrid$1.sr_ObjectRef__f_elem);
+function $p_Ltutorial_webapp_TutorialApp$__resizeGrid$1__Ltutorial_webapp_ui_Grid__I__I__Ltutorial_webapp_ui_Grid($thiz, original, newNumRows, newNumCols) {
+  return (((original.Ltutorial_webapp_ui_Grid__f_numAcross === newNumCols) && (original.Ltutorial_webapp_ui_Grid__f_numDown === newNumRows)) ? original : $m_Ltutorial_webapp_ui_Grid$().populateTbody__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_Element__I__I__Ltutorial_webapp_ui_Grid(original.Ltutorial_webapp_ui_Grid__f_container, original.Ltutorial_webapp_ui_Grid__f_tbody, newNumRows, newNumCols))
+}
+function $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V($thiz, hackySolution$1, hackyGrid$1, hackyPalette$1, hackyProgress$1) {
+  var this$1 = $as_s_Option(hackySolution$1.sr_ObjectRef__f_elem);
   if ((!this$1.isEmpty__Z())) {
     var arg1 = this$1.get__O();
     var g = $as_Ltutorial_webapp_ui_Grid(arg1);
-    $m_Ltutorial_webapp_ui_Grid$().renderIn__Ltutorial_webapp_ui_Grid__sci_List__V(g, $m_Ltutorial_webapp_TutorialApp$().Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_user.Ltutorial_webapp_puzzle_Canvas__f_grid)
+    $m_Ltutorial_webapp_ui_Grid$().renderIn__Ltutorial_webapp_ui_Grid__sci_List__V(g, $m_Ltutorial_webapp_TutorialApp$().Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution.Ltutorial_webapp_puzzle_Canvas__f_grid)
   };
-  var this$2 = $as_s_Option(hackyPalette$1.sr_ObjectRef__f_elem);
+  var this$2 = $as_s_Option(hackyGrid$1.sr_ObjectRef__f_elem);
   if ((!this$2.isEmpty__Z())) {
     var arg1$1 = this$2.get__O();
-    $m_Ltutorial_webapp_ui_Palette$().setActiveColor__Lorg_scalajs_dom_raw_Element__Ltutorial_webapp_puzzle_Color__V(arg1$1, $m_Ltutorial_webapp_TutorialApp$().Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_activeColor)
+    var g$3 = $as_Ltutorial_webapp_ui_Grid(arg1$1);
+    $m_Ltutorial_webapp_ui_Grid$().renderIn__Ltutorial_webapp_ui_Grid__sci_List__V(g$3, $m_Ltutorial_webapp_TutorialApp$().Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_user.Ltutorial_webapp_puzzle_Canvas__f_grid)
   };
-  var percentSolved = $thiz.calculatePercent__Ltutorial_webapp_puzzle_Canvas__Ltutorial_webapp_puzzle_Canvas__I($thiz.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_user, $thiz.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution);
-  var this$3 = $as_s_Option(hackyProgress$1.sr_ObjectRef__f_elem);
+  var this$3 = $as_s_Option(hackyPalette$1.sr_ObjectRef__f_elem);
   if ((!this$3.isEmpty__Z())) {
     var arg1$2 = this$3.get__O();
-    var pb = $as_Ltutorial_webapp_ui_ProgressBar(arg1$2);
+    $m_Ltutorial_webapp_ui_Palette$().setActiveColor__Lorg_scalajs_dom_raw_Element__Ltutorial_webapp_puzzle_Color__V(arg1$2, $m_Ltutorial_webapp_TutorialApp$().Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_activeColor)
+  };
+  var percentSolved = $thiz.calculatePercent__Ltutorial_webapp_puzzle_Canvas__Ltutorial_webapp_puzzle_Canvas__I($thiz.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_user, $thiz.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution);
+  $m_jl_System$Streams$().jl_System$Streams$__f_out.println__T__V(("state: " + $thiz.Ltutorial_webapp_TutorialApp$__f_state));
+  $m_jl_System$Streams$().jl_System$Streams$__f_out.println__T__V(("%: " + percentSolved));
+  var this$6 = $as_s_Option(hackyProgress$1.sr_ObjectRef__f_elem);
+  if ((!this$6.isEmpty__Z())) {
+    var arg1$3 = this$6.get__O();
+    var pb = $as_Ltutorial_webapp_ui_ProgressBar(arg1$3);
     $m_Ltutorial_webapp_ui_ProgressBar$().setValue__Ltutorial_webapp_ui_ProgressBar__I__V(pb, percentSolved)
   }
 }
 /** @constructor */
 function $c_Ltutorial_webapp_TutorialApp$() {
-  this.Ltutorial_webapp_TutorialApp$__f_solution = null;
   this.Ltutorial_webapp_TutorialApp$__f_state = null;
   $n_Ltutorial_webapp_TutorialApp$ = this;
-  $m_sci_List$();
-  $m_sci_List$();
-  var array = [$m_Ltutorial_webapp_puzzle_White$(), $m_Ltutorial_webapp_puzzle_White$(), $m_Ltutorial_webapp_puzzle_Red$()];
-  var elems = new $c_sjsr_WrappedVarArgs(array);
-  var $$x2 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(elems);
-  $m_sci_List$();
-  var array$1 = [$m_Ltutorial_webapp_puzzle_Red$(), $m_Ltutorial_webapp_puzzle_Blue$(), $m_Ltutorial_webapp_puzzle_Green$()];
-  var elems$1 = new $c_sjsr_WrappedVarArgs(array$1);
-  var $$x1 = $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(elems$1);
-  $m_sci_List$();
-  var array$2 = [$m_Ltutorial_webapp_puzzle_White$(), $m_Ltutorial_webapp_puzzle_White$(), $m_Ltutorial_webapp_puzzle_Black$()];
-  var elems$2 = new $c_sjsr_WrappedVarArgs(array$2);
-  var array$3 = [$$x2, $$x1, $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(elems$2)];
-  var elems$3 = new $c_sjsr_WrappedVarArgs(array$3);
-  this.Ltutorial_webapp_TutorialApp$__f_solution = new $c_Ltutorial_webapp_puzzle_Canvas(3, 3, $m_sci_Nil$().prependedAll__sc_IterableOnce__sci_List(elems$3));
-  this.Ltutorial_webapp_TutorialApp$__f_state = new $c_Ltutorial_webapp_state_State($m_Ltutorial_webapp_puzzle_Canvas$().clear__Ltutorial_webapp_puzzle_Canvas__Ltutorial_webapp_puzzle_Canvas(this.Ltutorial_webapp_TutorialApp$__f_solution), this.Ltutorial_webapp_TutorialApp$__f_solution, $m_Ltutorial_webapp_puzzle_White$())
+  this.Ltutorial_webapp_TutorialApp$__f_state = this.newGame__I__I__Ltutorial_webapp_state_State(4, 4)
 }
 $c_Ltutorial_webapp_TutorialApp$.prototype = new $h_O();
 $c_Ltutorial_webapp_TutorialApp$.prototype.constructor = $c_Ltutorial_webapp_TutorialApp$;
@@ -2849,6 +2844,10 @@ function $h_Ltutorial_webapp_TutorialApp$() {
   /*<skip>*/
 }
 $h_Ltutorial_webapp_TutorialApp$.prototype = $c_Ltutorial_webapp_TutorialApp$.prototype;
+$c_Ltutorial_webapp_TutorialApp$.prototype.newGame__I__I__Ltutorial_webapp_state_State = (function(numDown, numAcross) {
+  var solution = $m_Ltutorial_webapp_puzzle_Canvas$().generateRandom__I__I__sci_List__Ltutorial_webapp_puzzle_Canvas(numDown, numAcross, $m_Ltutorial_webapp_puzzle_Color$().getAll__sci_List());
+  return new $c_Ltutorial_webapp_state_State($m_Ltutorial_webapp_puzzle_Canvas$().clear__Ltutorial_webapp_puzzle_Canvas__Ltutorial_webapp_puzzle_Canvas(solution), solution, $m_Ltutorial_webapp_puzzle_White$())
+});
 $c_Ltutorial_webapp_TutorialApp$.prototype.main__AT__V = (function(args) {
   $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().addEventListener("DOMContentLoaded", ((arg1$2) => {
     $m_Ltutorial_webapp_TutorialApp$();
@@ -2917,10 +2916,12 @@ $c_Ltutorial_webapp_TutorialApp$.prototype.setupUI__V = (function() {
   var elem = $m_s_None$();
   var hackyGrid = new $c_sr_ObjectRef(elem);
   var elem$1 = $m_s_None$();
-  var hackyPalette = new $c_sr_ObjectRef(elem$1);
+  var hackySolution = new $c_sr_ObjectRef(elem$1);
   var elem$2 = $m_s_None$();
-  var hackyProgress = new $c_sr_ObjectRef(elem$2);
-  var grid = $m_Ltutorial_webapp_ui_Grid$().make__I__I__F1__Ltutorial_webapp_ui_Grid(this.Ltutorial_webapp_TutorialApp$__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numDown, this.Ltutorial_webapp_TutorialApp$__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numAcross, new $c_sjsr_AnonFunction1(((this$4, hackyGrid$1, hackyPalette$1, hackyProgress$1) => ((x0$1$2) => {
+  var hackyPalette = new $c_sr_ObjectRef(elem$2);
+  var elem$3 = $m_s_None$();
+  var hackyProgress = new $c_sr_ObjectRef(elem$3);
+  var grid = $m_Ltutorial_webapp_ui_Grid$().make__I__I__F1__Ltutorial_webapp_ui_Grid(this.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numDown, this.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numAcross, new $c_sjsr_AnonFunction1(((this$5, hackySolution$1, hackyGrid$1, hackyPalette$1, hackyProgress$1) => ((x0$1$2) => {
     var x0$1 = $as_T2(x0$1$2);
     if ((x0$1 !== null)) {
       var rowNum = x0$1._1$mcI$sp__I();
@@ -2931,16 +2932,17 @@ $c_Ltutorial_webapp_TutorialApp$.prototype.setupUI__V = (function() {
       var x$2 = qual$1.Ltutorial_webapp_state_State__f_solution;
       var x$3 = qual$1.Ltutorial_webapp_state_State__f_activeColor;
       $$x1.Ltutorial_webapp_TutorialApp$__f_state = new $c_Ltutorial_webapp_state_State(x$1, x$2, x$3);
-      $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V(this$4, hackyGrid$1, hackyPalette$1, hackyProgress$1)
+      $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V(this$5, hackySolution$1, hackyGrid$1, hackyPalette$1, hackyProgress$1)
     } else {
       throw new $c_s_MatchError(x0$1)
     }
-  }))(this, hackyGrid, hackyPalette, hackyProgress)));
+  }))(this, hackySolution, hackyGrid, hackyPalette, hackyProgress)));
   hackyGrid.sr_ObjectRef__f_elem = new $c_s_Some(grid);
-  var solutionGrid = $m_Ltutorial_webapp_ui_Grid$().make__I__I__F1__Ltutorial_webapp_ui_Grid(this.Ltutorial_webapp_TutorialApp$__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numDown, this.Ltutorial_webapp_TutorialApp$__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numAcross, new $c_sjsr_AnonFunction1(((this$2$1) => ((x$1$2) => {
+  var solutionGrid = $m_Ltutorial_webapp_ui_Grid$().make__I__I__F1__Ltutorial_webapp_ui_Grid(this.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numDown, this.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution.Ltutorial_webapp_puzzle_Canvas__f_numAcross, new $c_sjsr_AnonFunction1(((this$2$1) => ((x$1$2) => {
     $as_T2(x$1$2)
   }))(this)));
   $m_Ltutorial_webapp_ui_Grid$().renderIn__Ltutorial_webapp_ui_Grid__sci_List__V(solutionGrid, this.Ltutorial_webapp_TutorialApp$__f_state.Ltutorial_webapp_state_State__f_solution.Ltutorial_webapp_puzzle_Canvas__f_grid);
+  hackySolution.sr_ObjectRef__f_elem = new $c_s_Some(solutionGrid);
   var container = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().createElement("div");
   container.classList.add("container");
   container.appendChild(solutionGrid.Ltutorial_webapp_ui_Grid__f_container);
@@ -2949,21 +2951,48 @@ $c_Ltutorial_webapp_TutorialApp$.prototype.setupUI__V = (function() {
   outerContainer.classList.add("outer-container");
   outerContainer.appendChild(container);
   $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().body.appendChild(outerContainer);
-  var rawPalette = $m_Ltutorial_webapp_ui_Palette$().renderPalette__sci_List__F1__Lorg_scalajs_dom_raw_Element($m_Ltutorial_webapp_puzzle_Color$().getAll__sci_List(), new $c_sjsr_AnonFunction1(((this$3$1, hackyGrid$2, hackyPalette$2, hackyProgress$2) => ((activeColor$2) => {
+  var rawPalette = $m_Ltutorial_webapp_ui_Palette$().renderPalette__sci_List__F1__Lorg_scalajs_dom_raw_Element($m_Ltutorial_webapp_puzzle_Color$().getAll__sci_List(), new $c_sjsr_AnonFunction1(((this$3$1, hackySolution$2, hackyGrid$2, hackyPalette$2, hackyProgress$2) => ((activeColor$2) => {
     var activeColor = $as_Ltutorial_webapp_puzzle_Color(activeColor$2);
     var $$x2 = $m_Ltutorial_webapp_TutorialApp$();
     var qual$2 = $m_Ltutorial_webapp_TutorialApp$().Ltutorial_webapp_TutorialApp$__f_state;
     var x$5 = qual$2.Ltutorial_webapp_state_State__f_user;
     var x$6 = qual$2.Ltutorial_webapp_state_State__f_solution;
     $$x2.Ltutorial_webapp_TutorialApp$__f_state = new $c_Ltutorial_webapp_state_State(x$5, x$6, activeColor);
-    $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V(this$3$1, hackyGrid$2, hackyPalette$2, hackyProgress$2)
-  }))(this, hackyGrid, hackyPalette, hackyProgress)));
+    $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V(this$3$1, hackySolution$2, hackyGrid$2, hackyPalette$2, hackyProgress$2)
+  }))(this, hackySolution, hackyGrid, hackyPalette, hackyProgress)));
   hackyPalette.sr_ObjectRef__f_elem = new $c_s_Some(rawPalette);
   $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().body.appendChild(rawPalette);
   var progressBar = $m_Ltutorial_webapp_ui_ProgressBar$().make__Ltutorial_webapp_ui_ProgressBar();
   hackyProgress.sr_ObjectRef__f_elem = new $c_s_Some(progressBar);
   $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().body.appendChild(progressBar.Ltutorial_webapp_ui_ProgressBar__f_container);
-  $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V(this, hackyGrid, hackyPalette, hackyProgress)
+  var commandBar = $m_Ltutorial_webapp_ui_CommandBar$().build__F2__Lorg_scalajs_dom_raw_Element(new $c_sjsr_AnonFunction2(((this$4$1, hackySolution$3, hackyGrid$3, hackyPalette$3, hackyProgress$3) => ((numDown$2, numAcross$2) => {
+    var numDown = $uI(numDown$2);
+    var numAcross = $uI(numAcross$2);
+    $m_Ltutorial_webapp_TutorialApp$().Ltutorial_webapp_TutorialApp$__f_state = $m_Ltutorial_webapp_TutorialApp$().newGame__I__I__Ltutorial_webapp_state_State(numDown, numAcross);
+    var this$6 = $as_s_Option(hackySolution$3.sr_ObjectRef__f_elem);
+    var $$x3;
+    if (this$6.isEmpty__Z()) {
+      $$x3 = $m_s_None$()
+    } else {
+      var arg1 = this$6.get__O();
+      var s = $as_Ltutorial_webapp_ui_Grid(arg1);
+      $$x3 = new $c_s_Some($p_Ltutorial_webapp_TutorialApp$__resizeGrid$1__Ltutorial_webapp_ui_Grid__I__I__Ltutorial_webapp_ui_Grid(this$4$1, s, numDown, numAcross))
+    };
+    hackySolution$3.sr_ObjectRef__f_elem = $$x3;
+    var this$7 = $as_s_Option(hackyGrid$3.sr_ObjectRef__f_elem);
+    var $$x4;
+    if (this$7.isEmpty__Z()) {
+      $$x4 = $m_s_None$()
+    } else {
+      var arg1$1 = this$7.get__O();
+      var u = $as_Ltutorial_webapp_ui_Grid(arg1$1);
+      $$x4 = new $c_s_Some($p_Ltutorial_webapp_TutorialApp$__resizeGrid$1__Ltutorial_webapp_ui_Grid__I__I__Ltutorial_webapp_ui_Grid(this$4$1, u, numDown, numAcross))
+    };
+    hackyGrid$3.sr_ObjectRef__f_elem = $$x4;
+    $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V(this$4$1, hackySolution$3, hackyGrid$3, hackyPalette$3, hackyProgress$3)
+  }))(this, hackySolution, hackyGrid, hackyPalette, hackyProgress)));
+  $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().body.appendChild(commandBar);
+  $p_Ltutorial_webapp_TutorialApp$__renderCurrent$1__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__sr_ObjectRef__V(this, hackySolution, hackyGrid, hackyPalette, hackyProgress)
 });
 var $d_Ltutorial_webapp_TutorialApp$ = new $TypeData().initClass({
   Ltutorial_webapp_TutorialApp$: 0
@@ -3066,6 +3095,56 @@ function $m_Ltutorial_webapp_puzzle_Color$() {
     $n_Ltutorial_webapp_puzzle_Color$ = new $c_Ltutorial_webapp_puzzle_Color$()
   };
   return $n_Ltutorial_webapp_puzzle_Color$
+}
+function $p_Ltutorial_webapp_ui_CommandBar$__makeNewPuzzleButton__T__F0__Lorg_scalajs_dom_raw_Element($thiz, text, onNew) {
+  var button = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().createElement("button");
+  button.innerText = text;
+  button.addEventListener("touchstart", ((onNew$2) => ((arg1$2) => {
+    onNew$2.apply__O()
+  }))(onNew));
+  return button
+}
+/** @constructor */
+function $c_Ltutorial_webapp_ui_CommandBar$() {
+  /*<skip>*/
+}
+$c_Ltutorial_webapp_ui_CommandBar$.prototype = new $h_O();
+$c_Ltutorial_webapp_ui_CommandBar$.prototype.constructor = $c_Ltutorial_webapp_ui_CommandBar$;
+/** @constructor */
+function $h_Ltutorial_webapp_ui_CommandBar$() {
+  /*<skip>*/
+}
+$h_Ltutorial_webapp_ui_CommandBar$.prototype = $c_Ltutorial_webapp_ui_CommandBar$.prototype;
+$c_Ltutorial_webapp_ui_CommandBar$.prototype.build__F2__Lorg_scalajs_dom_raw_Element = (function(onNew) {
+  var div = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().createElement("div");
+  div.classList.add("command-bar");
+  var button3x3 = $p_Ltutorial_webapp_ui_CommandBar$__makeNewPuzzleButton__T__F0__Lorg_scalajs_dom_raw_Element(this, "3x3", new $c_sjsr_AnonFunction0(((this$1, onNew$1) => (() => {
+    onNew$1.apply__O__O__O(3, 3)
+  }))(this, onNew)));
+  var button4x4 = $p_Ltutorial_webapp_ui_CommandBar$__makeNewPuzzleButton__T__F0__Lorg_scalajs_dom_raw_Element(this, "4x4", new $c_sjsr_AnonFunction0(((this$2, onNew$2) => (() => {
+    onNew$2.apply__O__O__O(4, 4)
+  }))(this, onNew)));
+  var button5x5 = $p_Ltutorial_webapp_ui_CommandBar$__makeNewPuzzleButton__T__F0__Lorg_scalajs_dom_raw_Element(this, "5x5", new $c_sjsr_AnonFunction0(((this$3, onNew$3) => (() => {
+    onNew$3.apply__O__O__O(5, 5)
+  }))(this, onNew)));
+  div.appendChild(button3x3);
+  div.appendChild(button4x4);
+  div.appendChild(button5x5);
+  return div
+});
+var $d_Ltutorial_webapp_ui_CommandBar$ = new $TypeData().initClass({
+  Ltutorial_webapp_ui_CommandBar$: 0
+}, false, "tutorial.webapp.ui.CommandBar$", {
+  Ltutorial_webapp_ui_CommandBar$: 1,
+  O: 1
+});
+$c_Ltutorial_webapp_ui_CommandBar$.prototype.$classData = $d_Ltutorial_webapp_ui_CommandBar$;
+var $n_Ltutorial_webapp_ui_CommandBar$;
+function $m_Ltutorial_webapp_ui_CommandBar$() {
+  if ((!$n_Ltutorial_webapp_ui_CommandBar$)) {
+    $n_Ltutorial_webapp_ui_CommandBar$ = new $c_Ltutorial_webapp_ui_CommandBar$()
+  };
+  return $n_Ltutorial_webapp_ui_CommandBar$
 }
 /** @constructor */
 function $c_Ltutorial_webapp_ui_Palette$() {
@@ -4164,6 +4243,20 @@ $c_sr_AbstractFunction1.prototype.toString__T = (function() {
   return "<function1>"
 });
 /** @constructor */
+function $c_sr_AbstractFunction2() {
+  /*<skip>*/
+}
+$c_sr_AbstractFunction2.prototype = new $h_O();
+$c_sr_AbstractFunction2.prototype.constructor = $c_sr_AbstractFunction2;
+/** @constructor */
+function $h_sr_AbstractFunction2() {
+  /*<skip>*/
+}
+$h_sr_AbstractFunction2.prototype = $c_sr_AbstractFunction2.prototype;
+$c_sr_AbstractFunction2.prototype.toString__T = (function() {
+  return "<function2>"
+});
+/** @constructor */
 function $c_sr_IntRef(elem) {
   this.sr_IntRef__f_elem = 0;
   this.sr_IntRef__f_elem = elem
@@ -4357,7 +4450,7 @@ $c_Ltutorial_webapp_puzzle_Canvas$.prototype.clear__Ltutorial_webapp_puzzle_Canv
     var g = $as_sci_List(g$2);
     var f = ((this$2) => ((x$1$2) => {
       $as_Ltutorial_webapp_puzzle_Color(x$1$2);
-      return $m_Ltutorial_webapp_puzzle_White$()
+      return $m_Ltutorial_webapp_puzzle_Unset$()
     }))(this$1);
     if ((g === $m_sci_Nil$())) {
       return $m_sci_Nil$()
@@ -4463,6 +4556,120 @@ $c_Ltutorial_webapp_puzzle_Canvas$.prototype.setColor__Ltutorial_webapp_puzzle_C
   var x$3 = canvas.Ltutorial_webapp_puzzle_Canvas__f_numDown;
   return new $c_Ltutorial_webapp_puzzle_Canvas(x$2, x$3, x$1)
 });
+$c_Ltutorial_webapp_puzzle_Canvas$.prototype.getRandomColor__sci_List__Ltutorial_webapp_puzzle_Color = (function(candidates) {
+  var a = ($uD(Math.random()) * candidates.length__I());
+  var colIndex = $doubleToInt($uD(Math.floor(a)));
+  return $as_Ltutorial_webapp_puzzle_Color($f_sc_LinearSeqOps__apply__I__O(candidates, colIndex))
+});
+$c_Ltutorial_webapp_puzzle_Canvas$.prototype.generateRandom__I__I__sci_List__Ltutorial_webapp_puzzle_Canvas = (function(height, width, candidates) {
+  $m_s_package$();
+  var isEmpty = (height <= 0);
+  var scala$collection$immutable$Range$$numRangeElements;
+  if (isEmpty) {
+    scala$collection$immutable$Range$$numRangeElements = 0
+  } else {
+    var hi = (height >> 31);
+    scala$collection$immutable$Range$$numRangeElements = (((hi === 0) ? (((-2147483648) ^ height) > (-1)) : (hi > 0)) ? (-1) : height)
+  };
+  var scala$collection$immutable$Range$$lastElement = (((-1) + height) | 0);
+  $m_sci_List$();
+  var this$5 = $m_sci_Nil$();
+  if ((scala$collection$immutable$Range$$numRangeElements < 0)) {
+    $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, height, 1, false)
+  };
+  var this$14;
+  if ((scala$collection$immutable$Range$$numRangeElements === 0)) {
+    this$14 = this$5
+  } else {
+    var iter = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement, isEmpty);
+    if (iter.sci_RangeIterator__f__hasNext) {
+      var result = new $c_sci_$colon$colon(iter.next__I(), this$5);
+      var curr = result;
+      while (iter.sci_RangeIterator__f__hasNext) {
+        var temp = new $c_sci_$colon$colon(iter.next__I(), this$5);
+        curr.sci_$colon$colon__f_next = temp;
+        curr = temp
+      };
+      this$14 = result
+    } else {
+      this$14 = this$5
+    }
+  };
+  var f$1 = ((this$6, width$1, candidates$1) => ((r$2) => {
+    $uI(r$2);
+    $m_s_package$();
+    var isEmpty$1 = (width$1 <= 0);
+    var scala$collection$immutable$Range$$numRangeElements$1;
+    if (isEmpty$1) {
+      scala$collection$immutable$Range$$numRangeElements$1 = 0
+    } else {
+      var hi$2 = (width$1 >> 31);
+      scala$collection$immutable$Range$$numRangeElements$1 = (((hi$2 === 0) ? (((-2147483648) ^ width$1) > (-1)) : (hi$2 > 0)) ? (-1) : width$1)
+    };
+    var scala$collection$immutable$Range$$lastElement$1 = (((-1) + width$1) | 0);
+    $m_sci_List$();
+    var this$11 = $m_sci_Nil$();
+    if ((scala$collection$immutable$Range$$numRangeElements$1 < 0)) {
+      $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, width$1, 1, false)
+    };
+    var this$13;
+    if ((scala$collection$immutable$Range$$numRangeElements$1 === 0)) {
+      this$13 = this$11
+    } else {
+      var iter$1 = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement$1, isEmpty$1);
+      if (iter$1.sci_RangeIterator__f__hasNext) {
+        var result$1 = new $c_sci_$colon$colon(iter$1.next__I(), this$11);
+        var curr$1 = result$1;
+        while (iter$1.sci_RangeIterator__f__hasNext) {
+          var temp$1 = new $c_sci_$colon$colon(iter$1.next__I(), this$11);
+          curr$1.sci_$colon$colon__f_next = temp$1;
+          curr$1 = temp$1
+        };
+        this$13 = result$1
+      } else {
+        this$13 = this$11
+      }
+    };
+    var f = ((this$12, candidates$1$1) => ((c$2) => {
+      $uI(c$2);
+      return $m_Ltutorial_webapp_puzzle_Canvas$().getRandomColor__sci_List__Ltutorial_webapp_puzzle_Color(candidates$1$1)
+    }))(this$6, candidates$1);
+    if ((this$13 === $m_sci_Nil$())) {
+      return $m_sci_Nil$()
+    } else {
+      var arg1 = this$13.head__O();
+      var h = new $c_sci_$colon$colon(f(arg1), $m_sci_Nil$());
+      var t = h;
+      var rest = $as_sci_List(this$13.tail__O());
+      while ((rest !== $m_sci_Nil$())) {
+        var arg1$1 = rest.head__O();
+        var nx = new $c_sci_$colon$colon(f(arg1$1), $m_sci_Nil$());
+        t.sci_$colon$colon__f_next = nx;
+        t = nx;
+        rest = $as_sci_List(rest.tail__O())
+      };
+      return h
+    }
+  }))(this, width, candidates);
+  var $$x1;
+  if ((this$14 === $m_sci_Nil$())) {
+    $$x1 = $m_sci_Nil$()
+  } else {
+    var arg1$2 = this$14.head__O();
+    var h$1 = new $c_sci_$colon$colon(f$1(arg1$2), $m_sci_Nil$());
+    var t$1 = h$1;
+    var rest$1 = $as_sci_List(this$14.tail__O());
+    while ((rest$1 !== $m_sci_Nil$())) {
+      var arg1$3 = rest$1.head__O();
+      var nx$1 = new $c_sci_$colon$colon(f$1(arg1$3), $m_sci_Nil$());
+      t$1.sci_$colon$colon__f_next = nx$1;
+      t$1 = nx$1;
+      rest$1 = $as_sci_List(rest$1.tail__O())
+    };
+    $$x1 = h$1
+  };
+  return new $c_Ltutorial_webapp_puzzle_Canvas(width, height, $$x1)
+});
 var $d_Ltutorial_webapp_puzzle_Canvas$ = new $TypeData().initClass({
   Ltutorial_webapp_puzzle_Canvas$: 0
 }, false, "tutorial.webapp.puzzle.Canvas$", {
@@ -4484,7 +4691,8 @@ function $p_Ltutorial_webapp_ui_Grid$__renderCell__Lorg_scalajs_dom_raw_Element_
 }
 /** @constructor */
 function $c_Ltutorial_webapp_ui_Grid$() {
-  /*<skip>*/
+  this.Ltutorial_webapp_ui_Grid$__f_MAX_TABLE_SIZE = 0;
+  this.Ltutorial_webapp_ui_Grid$__f_MAX_TABLE_SIZE = 180
 }
 $c_Ltutorial_webapp_ui_Grid$.prototype = new $h_O();
 $c_Ltutorial_webapp_ui_Grid$.prototype.constructor = $c_Ltutorial_webapp_ui_Grid$;
@@ -4493,6 +4701,138 @@ function $h_Ltutorial_webapp_ui_Grid$() {
   /*<skip>*/
 }
 $h_Ltutorial_webapp_ui_Grid$.prototype = $c_Ltutorial_webapp_ui_Grid$.prototype;
+$c_Ltutorial_webapp_ui_Grid$.prototype.populateTbody__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_Element__I__I__Ltutorial_webapp_ui_Grid = (function(table, tbody, numRows, numCols) {
+  tbody.innerHTML = "";
+  var cellSize = $intDiv(this.Ltutorial_webapp_ui_Grid$__f_MAX_TABLE_SIZE, numRows);
+  $m_s_package$();
+  var isEmpty = (numRows <= 0);
+  var scala$collection$immutable$Range$$numRangeElements;
+  if (isEmpty) {
+    scala$collection$immutable$Range$$numRangeElements = 0
+  } else {
+    var hi = (numRows >> 31);
+    scala$collection$immutable$Range$$numRangeElements = (((hi === 0) ? (((-2147483648) ^ numRows) > (-1)) : (hi > 0)) ? (-1) : numRows)
+  };
+  var scala$collection$immutable$Range$$lastElement = (((-1) + numRows) | 0);
+  $m_sci_List$();
+  var this$5 = $m_sci_Nil$();
+  if ((scala$collection$immutable$Range$$numRangeElements < 0)) {
+    $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, numRows, 1, false)
+  };
+  var this$16;
+  if ((scala$collection$immutable$Range$$numRangeElements === 0)) {
+    this$16 = this$5
+  } else {
+    var iter = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement, isEmpty);
+    if (iter.sci_RangeIterator__f__hasNext) {
+      var result = new $c_sci_$colon$colon(iter.next__I(), this$5);
+      var curr = result;
+      while (iter.sci_RangeIterator__f__hasNext) {
+        var temp = new $c_sci_$colon$colon(iter.next__I(), this$5);
+        curr.sci_$colon$colon__f_next = temp;
+        curr = temp
+      };
+      this$16 = result
+    } else {
+      this$16 = this$5
+    }
+  };
+  var f$1 = ((this$6, numCols$1, cellSize$1) => ((rowId$2) => {
+    var rowId = $uI(rowId$2);
+    var trow = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().createElement("tr");
+    $m_s_package$();
+    var isEmpty$1 = (numCols$1 <= 0);
+    var scala$collection$immutable$Range$$numRangeElements$1;
+    if (isEmpty$1) {
+      scala$collection$immutable$Range$$numRangeElements$1 = 0
+    } else {
+      var hi$2 = (numCols$1 >> 31);
+      scala$collection$immutable$Range$$numRangeElements$1 = (((hi$2 === 0) ? (((-2147483648) ^ numCols$1) > (-1)) : (hi$2 > 0)) ? (-1) : numCols$1)
+    };
+    var scala$collection$immutable$Range$$lastElement$1 = (((-1) + numCols$1) | 0);
+    $m_sci_List$();
+    var this$11 = $m_sci_Nil$();
+    if ((scala$collection$immutable$Range$$numRangeElements$1 < 0)) {
+      $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, numCols$1, 1, false)
+    };
+    var this$15;
+    if ((scala$collection$immutable$Range$$numRangeElements$1 === 0)) {
+      this$15 = this$11
+    } else {
+      var iter$1 = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement$1, isEmpty$1);
+      if (iter$1.sci_RangeIterator__f__hasNext) {
+        var result$1 = new $c_sci_$colon$colon(iter$1.next__I(), this$11);
+        var curr$1 = result$1;
+        while (iter$1.sci_RangeIterator__f__hasNext) {
+          var temp$1 = new $c_sci_$colon$colon(iter$1.next__I(), this$11);
+          curr$1.sci_$colon$colon__f_next = temp$1;
+          curr$1 = temp$1
+        };
+        this$15 = result$1
+      } else {
+        this$15 = this$11
+      }
+    };
+    var f = ((this$12, rowId$1, cellSize$1$1) => ((colId$2) => {
+      var colId = $uI(colId$2);
+      var td = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().createElement("td");
+      td.classList.add("grid-cell");
+      td.setAttribute("data-row", ("" + rowId$1));
+      td.setAttribute("data-column", ("" + colId));
+      td.setAttribute("style", (((("width: " + cellSize$1$1) + "px; height: ") + cellSize$1$1) + "px"));
+      return td
+    }))(this$6, rowId, cellSize$1);
+    var cellsInRow;
+    if ((this$15 === $m_sci_Nil$())) {
+      cellsInRow = $m_sci_Nil$()
+    } else {
+      var arg1 = this$15.head__O();
+      var h = new $c_sci_$colon$colon(f(arg1), $m_sci_Nil$());
+      var t = h;
+      var rest = $as_sci_List(this$15.tail__O());
+      while ((rest !== $m_sci_Nil$())) {
+        var arg1$1 = rest.head__O();
+        var nx = new $c_sci_$colon$colon(f(arg1$1), $m_sci_Nil$());
+        t.sci_$colon$colon__f_next = nx;
+        t = nx;
+        rest = $as_sci_List(rest.tail__O())
+      };
+      cellsInRow = h
+    };
+    var these = cellsInRow;
+    while ((!these.isEmpty__Z())) {
+      var arg1$2 = these.head__O();
+      trow.appendChild(arg1$2);
+      these = $as_sci_List(these.tail__O())
+    };
+    return $ct_T2__O__O__(new $c_T2(), trow, cellsInRow)
+  }))(this, numCols, cellSize);
+  var trows;
+  if ((this$16 === $m_sci_Nil$())) {
+    trows = $m_sci_Nil$()
+  } else {
+    var arg1$3 = this$16.head__O();
+    var h$1 = new $c_sci_$colon$colon(f$1(arg1$3), $m_sci_Nil$());
+    var t$1 = h$1;
+    var rest$1 = $as_sci_List(this$16.tail__O());
+    while ((rest$1 !== $m_sci_Nil$())) {
+      var arg1$4 = rest$1.head__O();
+      var nx$1 = new $c_sci_$colon$colon(f$1(arg1$4), $m_sci_Nil$());
+      t$1.sci_$colon$colon__f_next = nx$1;
+      t$1 = nx$1;
+      rest$1 = $as_sci_List(rest$1.tail__O())
+    };
+    trows = h$1
+  };
+  var these$1 = trows;
+  while ((!these$1.isEmpty__Z())) {
+    var arg1$5 = these$1.head__O();
+    var r = $as_T2(arg1$5);
+    tbody.appendChild(r._1__O());
+    these$1 = $as_sci_List(these$1.tail__O())
+  };
+  return new $c_Ltutorial_webapp_ui_Grid(table, tbody, numRows, numCols, trows)
+});
 $c_Ltutorial_webapp_ui_Grid$.prototype.renderIn__Ltutorial_webapp_ui_Grid__sci_List__V = (function(grid, colors) {
   var this$1 = $as_sci_List($f_sc_StrictOptimizedIterableOps__zipWithIndex__O(colors));
   var these = this$1;
@@ -4575,133 +4915,7 @@ $c_Ltutorial_webapp_ui_Grid$.prototype.make__I__I__F1__Ltutorial_webapp_ui_Grid 
   tbody.addEventListener("touchstart", ((onPaint$1) => ((arg1$2) => {
     $m_Ltutorial_webapp_ui_Grid$().tutorial$webapp$ui$Grid$$$anonfun$make$1__Lorg_scalajs_dom_raw_Event__F1__V(arg1$2, onPaint$1)
   }))(onPaint));
-  $m_s_package$();
-  var isEmpty = (numRows <= 0);
-  var scala$collection$immutable$Range$$numRangeElements;
-  if (isEmpty) {
-    scala$collection$immutable$Range$$numRangeElements = 0
-  } else {
-    var hi = (numRows >> 31);
-    scala$collection$immutable$Range$$numRangeElements = (((hi === 0) ? (((-2147483648) ^ numRows) > (-1)) : (hi > 0)) ? (-1) : numRows)
-  };
-  var scala$collection$immutable$Range$$lastElement = (((-1) + numRows) | 0);
-  $m_sci_List$();
-  var this$5 = $m_sci_Nil$();
-  if ((scala$collection$immutable$Range$$numRangeElements < 0)) {
-    $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, numRows, 1, false)
-  };
-  var this$16;
-  if ((scala$collection$immutable$Range$$numRangeElements === 0)) {
-    this$16 = this$5
-  } else {
-    var iter = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement, isEmpty);
-    if (iter.sci_RangeIterator__f__hasNext) {
-      var result = new $c_sci_$colon$colon(iter.next__I(), this$5);
-      var curr = result;
-      while (iter.sci_RangeIterator__f__hasNext) {
-        var temp = new $c_sci_$colon$colon(iter.next__I(), this$5);
-        curr.sci_$colon$colon__f_next = temp;
-        curr = temp
-      };
-      this$16 = result
-    } else {
-      this$16 = this$5
-    }
-  };
-  var f$1 = ((this$6, numCols$1) => ((rowId$2) => {
-    var rowId = $uI(rowId$2);
-    var trow = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().createElement("tr");
-    $m_s_package$();
-    var isEmpty$1 = (numCols$1 <= 0);
-    var scala$collection$immutable$Range$$numRangeElements$1;
-    if (isEmpty$1) {
-      scala$collection$immutable$Range$$numRangeElements$1 = 0
-    } else {
-      var hi$2 = (numCols$1 >> 31);
-      scala$collection$immutable$Range$$numRangeElements$1 = (((hi$2 === 0) ? (((-2147483648) ^ numCols$1) > (-1)) : (hi$2 > 0)) ? (-1) : numCols$1)
-    };
-    var scala$collection$immutable$Range$$lastElement$1 = (((-1) + numCols$1) | 0);
-    $m_sci_List$();
-    var this$11 = $m_sci_Nil$();
-    if ((scala$collection$immutable$Range$$numRangeElements$1 < 0)) {
-      $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, numCols$1, 1, false)
-    };
-    var this$15;
-    if ((scala$collection$immutable$Range$$numRangeElements$1 === 0)) {
-      this$15 = this$11
-    } else {
-      var iter$1 = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement$1, isEmpty$1);
-      if (iter$1.sci_RangeIterator__f__hasNext) {
-        var result$1 = new $c_sci_$colon$colon(iter$1.next__I(), this$11);
-        var curr$1 = result$1;
-        while (iter$1.sci_RangeIterator__f__hasNext) {
-          var temp$1 = new $c_sci_$colon$colon(iter$1.next__I(), this$11);
-          curr$1.sci_$colon$colon__f_next = temp$1;
-          curr$1 = temp$1
-        };
-        this$15 = result$1
-      } else {
-        this$15 = this$11
-      }
-    };
-    var f = ((this$12, rowId$1) => ((colId$2) => {
-      var colId = $uI(colId$2);
-      var td = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().createElement("td");
-      td.classList.add("grid-cell");
-      td.setAttribute("data-row", ("" + rowId$1));
-      td.setAttribute("data-column", ("" + colId));
-      return td
-    }))(this$6, rowId);
-    var cellsInRow;
-    if ((this$15 === $m_sci_Nil$())) {
-      cellsInRow = $m_sci_Nil$()
-    } else {
-      var arg1 = this$15.head__O();
-      var h = new $c_sci_$colon$colon(f(arg1), $m_sci_Nil$());
-      var t = h;
-      var rest = $as_sci_List(this$15.tail__O());
-      while ((rest !== $m_sci_Nil$())) {
-        var arg1$1 = rest.head__O();
-        var nx = new $c_sci_$colon$colon(f(arg1$1), $m_sci_Nil$());
-        t.sci_$colon$colon__f_next = nx;
-        t = nx;
-        rest = $as_sci_List(rest.tail__O())
-      };
-      cellsInRow = h
-    };
-    var these = cellsInRow;
-    while ((!these.isEmpty__Z())) {
-      var arg1$3 = these.head__O();
-      trow.appendChild(arg1$3);
-      these = $as_sci_List(these.tail__O())
-    };
-    return $ct_T2__O__O__(new $c_T2(), trow, cellsInRow)
-  }))(this, numCols);
-  var trows;
-  if ((this$16 === $m_sci_Nil$())) {
-    trows = $m_sci_Nil$()
-  } else {
-    var arg1$4 = this$16.head__O();
-    var h$1 = new $c_sci_$colon$colon(f$1(arg1$4), $m_sci_Nil$());
-    var t$1 = h$1;
-    var rest$1 = $as_sci_List(this$16.tail__O());
-    while ((rest$1 !== $m_sci_Nil$())) {
-      var arg1$5 = rest$1.head__O();
-      var nx$1 = new $c_sci_$colon$colon(f$1(arg1$5), $m_sci_Nil$());
-      t$1.sci_$colon$colon__f_next = nx$1;
-      t$1 = nx$1;
-      rest$1 = $as_sci_List(rest$1.tail__O())
-    };
-    trows = h$1
-  };
-  var these$1 = trows;
-  while ((!these$1.isEmpty__Z())) {
-    var arg1$6 = these$1.head__O();
-    var r = $as_T2(arg1$6);
-    tbody.appendChild(r._1__O());
-    these$1 = $as_sci_List(these$1.tail__O())
-  };
-  return new $c_Ltutorial_webapp_ui_Grid(table, tbody, trows)
+  return this.populateTbody__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_Element__I__I__Ltutorial_webapp_ui_Grid(table, tbody, numRows, numCols)
 });
 $c_Ltutorial_webapp_ui_Grid$.prototype.tutorial$webapp$ui$Grid$$$anonfun$make$1__Lorg_scalajs_dom_raw_Event__F1__V = (function(e, onPaint$1) {
   var target = e.target;
@@ -5258,6 +5472,30 @@ var $d_sjsr_AnonFunction1 = new $TypeData().initClass({
   F1: 1
 });
 $c_sjsr_AnonFunction1.prototype.$classData = $d_sjsr_AnonFunction1;
+/** @constructor */
+function $c_sjsr_AnonFunction2(f) {
+  this.sjsr_AnonFunction2__f_f = null;
+  this.sjsr_AnonFunction2__f_f = f
+}
+$c_sjsr_AnonFunction2.prototype = new $h_sr_AbstractFunction2();
+$c_sjsr_AnonFunction2.prototype.constructor = $c_sjsr_AnonFunction2;
+/** @constructor */
+function $h_sjsr_AnonFunction2() {
+  /*<skip>*/
+}
+$h_sjsr_AnonFunction2.prototype = $c_sjsr_AnonFunction2.prototype;
+$c_sjsr_AnonFunction2.prototype.apply__O__O__O = (function(arg1, arg2) {
+  return (0, this.sjsr_AnonFunction2__f_f)(arg1, arg2)
+});
+var $d_sjsr_AnonFunction2 = new $TypeData().initClass({
+  sjsr_AnonFunction2: 0
+}, false, "scala.scalajs.runtime.AnonFunction2", {
+  sjsr_AnonFunction2: 1,
+  sr_AbstractFunction2: 1,
+  O: 1,
+  F2: 1
+});
+$c_sjsr_AnonFunction2.prototype.$classData = $d_sjsr_AnonFunction2;
 /** @constructor */
 function $c_Ljava_io_OutputStream() {
   /*<skip>*/
@@ -6351,12 +6589,16 @@ var $d_Ltutorial_webapp_state_State = new $TypeData().initClass({
 });
 $c_Ltutorial_webapp_state_State.prototype.$classData = $d_Ltutorial_webapp_state_State;
 /** @constructor */
-function $c_Ltutorial_webapp_ui_Grid(container, tbody, cells) {
+function $c_Ltutorial_webapp_ui_Grid(container, tbody, numDown, numAcross, cells) {
   this.Ltutorial_webapp_ui_Grid__f_container = null;
   this.Ltutorial_webapp_ui_Grid__f_tbody = null;
+  this.Ltutorial_webapp_ui_Grid__f_numDown = 0;
+  this.Ltutorial_webapp_ui_Grid__f_numAcross = 0;
   this.Ltutorial_webapp_ui_Grid__f_cells = null;
   this.Ltutorial_webapp_ui_Grid__f_container = container;
   this.Ltutorial_webapp_ui_Grid__f_tbody = tbody;
+  this.Ltutorial_webapp_ui_Grid__f_numDown = numDown;
+  this.Ltutorial_webapp_ui_Grid__f_numAcross = numAcross;
   this.Ltutorial_webapp_ui_Grid__f_cells = cells
 }
 $c_Ltutorial_webapp_ui_Grid.prototype = new $h_O();
@@ -6370,7 +6612,7 @@ $c_Ltutorial_webapp_ui_Grid.prototype.productPrefix__T = (function() {
   return "Grid"
 });
 $c_Ltutorial_webapp_ui_Grid.prototype.productArity__I = (function() {
-  return 3
+  return 5
 });
 $c_Ltutorial_webapp_ui_Grid.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
@@ -6383,6 +6625,14 @@ $c_Ltutorial_webapp_ui_Grid.prototype.productElement__I__O = (function(x$1) {
       break
     }
     case 2: {
+      return this.Ltutorial_webapp_ui_Grid__f_numDown;
+      break
+    }
+    case 3: {
+      return this.Ltutorial_webapp_ui_Grid__f_numAcross;
+      break
+    }
+    case 4: {
       return this.Ltutorial_webapp_ui_Grid__f_cells;
       break
     }
@@ -6395,8 +6645,30 @@ $c_Ltutorial_webapp_ui_Grid.prototype.productIterator__sc_Iterator = (function()
   return new $c_sr_ScalaRunTime$$anon$1(this)
 });
 $c_Ltutorial_webapp_ui_Grid.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__Z__I(this, (-889275714), false)
+  var acc = (-889275714);
+  var hash = acc;
+  var data = $f_T__hashCode__I("Grid");
+  acc = $m_sr_Statics$().mix__I__I__I(hash, data);
+  var hash$1 = acc;
+  var x = this.Ltutorial_webapp_ui_Grid__f_container;
+  var data$1 = $m_sr_Statics$().anyHash__O__I(x);
+  acc = $m_sr_Statics$().mix__I__I__I(hash$1, data$1);
+  var hash$2 = acc;
+  var x$1 = this.Ltutorial_webapp_ui_Grid__f_tbody;
+  var data$2 = $m_sr_Statics$().anyHash__O__I(x$1);
+  acc = $m_sr_Statics$().mix__I__I__I(hash$2, data$2);
+  var hash$3 = acc;
+  var data$3 = this.Ltutorial_webapp_ui_Grid__f_numDown;
+  acc = $m_sr_Statics$().mix__I__I__I(hash$3, data$3);
+  var hash$4 = acc;
+  var data$4 = this.Ltutorial_webapp_ui_Grid__f_numAcross;
+  acc = $m_sr_Statics$().mix__I__I__I(hash$4, data$4);
+  var hash$5 = acc;
+  var x$2 = this.Ltutorial_webapp_ui_Grid__f_cells;
+  var data$5 = $m_sr_Statics$().anyHash__O__I(x$2);
+  acc = $m_sr_Statics$().mix__I__I__I(hash$5, data$5);
+  var hash$6 = acc;
+  return $m_sr_Statics$().finalizeHash__I__I__I(hash$6, 5)
 });
 $c_Ltutorial_webapp_ui_Grid.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$()._toString__s_Product__T(this)
@@ -6406,10 +6678,16 @@ $c_Ltutorial_webapp_ui_Grid.prototype.equals__O__Z = (function(x$1) {
     return true
   } else if ((x$1 instanceof $c_Ltutorial_webapp_ui_Grid)) {
     var Grid$1 = $as_Ltutorial_webapp_ui_Grid(x$1);
-    var x = this.Ltutorial_webapp_ui_Grid__f_container;
-    var y = Grid$1.Ltutorial_webapp_ui_Grid__f_container;
+    var $$x2;
+    if (((this.Ltutorial_webapp_ui_Grid__f_numDown === Grid$1.Ltutorial_webapp_ui_Grid__f_numDown) && (this.Ltutorial_webapp_ui_Grid__f_numAcross === Grid$1.Ltutorial_webapp_ui_Grid__f_numAcross))) {
+      var x = this.Ltutorial_webapp_ui_Grid__f_container;
+      var y = Grid$1.Ltutorial_webapp_ui_Grid__f_container;
+      $$x2 = $m_sr_BoxesRunTime$().equals__O__O__Z(x, y)
+    } else {
+      $$x2 = false
+    };
     var $$x1;
-    if ($m_sr_BoxesRunTime$().equals__O__O__Z(x, y)) {
+    if ($$x2) {
       var x$2 = this.Ltutorial_webapp_ui_Grid__f_tbody;
       var y$1 = Grid$1.Ltutorial_webapp_ui_Grid__f_tbody;
       $$x1 = $m_sr_BoxesRunTime$().equals__O__O__Z(x$2, y$1)
@@ -9310,6 +9588,53 @@ function $m_Ltutorial_webapp_puzzle_Red$() {
     $n_Ltutorial_webapp_puzzle_Red$ = new $c_Ltutorial_webapp_puzzle_Red$()
   };
   return $n_Ltutorial_webapp_puzzle_Red$
+}
+/** @constructor */
+function $c_Ltutorial_webapp_puzzle_Unset$() {
+  /*<skip>*/
+}
+$c_Ltutorial_webapp_puzzle_Unset$.prototype = new $h_O();
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.constructor = $c_Ltutorial_webapp_puzzle_Unset$;
+/** @constructor */
+function $h_Ltutorial_webapp_puzzle_Unset$() {
+  /*<skip>*/
+}
+$h_Ltutorial_webapp_puzzle_Unset$.prototype = $c_Ltutorial_webapp_puzzle_Unset$.prototype;
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.productPrefix__T = (function() {
+  return "Unset"
+});
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.productArity__I = (function() {
+  return 0
+});
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.productElement__I__O = (function(x$1) {
+  return $m_sr_Statics$().ioobe__I__O(x$1)
+});
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1(this)
+});
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.hashCode__I = (function() {
+  return 81890057
+});
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.toString__T = (function() {
+  return "Unset"
+});
+var $d_Ltutorial_webapp_puzzle_Unset$ = new $TypeData().initClass({
+  Ltutorial_webapp_puzzle_Unset$: 0
+}, false, "tutorial.webapp.puzzle.Unset$", {
+  Ltutorial_webapp_puzzle_Unset$: 1,
+  O: 1,
+  Ltutorial_webapp_puzzle_Color: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Ltutorial_webapp_puzzle_Unset$.prototype.$classData = $d_Ltutorial_webapp_puzzle_Unset$;
+var $n_Ltutorial_webapp_puzzle_Unset$;
+function $m_Ltutorial_webapp_puzzle_Unset$() {
+  if ((!$n_Ltutorial_webapp_puzzle_Unset$)) {
+    $n_Ltutorial_webapp_puzzle_Unset$ = new $c_Ltutorial_webapp_puzzle_Unset$()
+  };
+  return $n_Ltutorial_webapp_puzzle_Unset$
 }
 /** @constructor */
 function $c_Ltutorial_webapp_puzzle_White$() {
